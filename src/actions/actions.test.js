@@ -36,3 +36,17 @@ describe('Update owned squares action', () => {
         expect(actions.updateOwnedSquares('x', 'square1')).toEqual(expectedAction);
     });
 });
+
+describe('Win status action', () => {
+    it('should create an action to update the win status of the game', () => {
+        const winner = 'o',
+              expectedAction = {
+                  type: types.WIN_STATUS,
+                  payload: {
+                      winner
+                  }
+              };
+
+        expect(actions.winStatus(winner)).toEqual(expectedAction);
+    });
+});

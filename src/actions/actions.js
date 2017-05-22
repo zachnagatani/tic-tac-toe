@@ -22,4 +22,13 @@ function updateOwnedSquares (currentPlayer, squareID) {
     }
 }
 
-export { changePlayer, incrementTurnCounter, updateOwnedSquares };
+function winStatus (winner) {
+    return {
+        type: types.WIN_STATUS,
+        payload: {
+            winner
+        }
+    }
+}
+
+export { changePlayer, incrementTurnCounter, updateOwnedSquares, winStatus };
