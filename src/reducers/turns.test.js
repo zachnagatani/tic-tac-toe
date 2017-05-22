@@ -1,4 +1,4 @@
-import turnsReducer from './turnsReducer';
+import turnsReducer from './turns';
 import { INCREMENT_TURN_COUNTER } from '../actions/actionTypes';
 
 describe('Turns reducer', () => {
