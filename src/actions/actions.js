@@ -6,4 +6,10 @@ function changePlayer () {
     }
 }
 
-export { changePlayer };
+function incrementTurnCounter () {
+    return {
+        type: types.INCREMENT_TURN_COUNTER
+    }
+}
+
+export { changePlayer, incrementTurnCounter };
