@@ -12,4 +12,13 @@ function incrementTurnCounter () {
     }
 }
 
-export { changePlayer, incrementTurnCounter };
+function updateOwnedSquares (squareID) {
+    return {
+        type: types.UPDATE_OWNED_SQUARES,
+        payload: {
+            squareID
+        }
+    }
+}
+
+export { changePlayer, incrementTurnCounter, updateOwnedSquares };

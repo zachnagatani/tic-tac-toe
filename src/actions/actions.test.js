@@ -20,3 +20,17 @@ describe('Increment turn counter action', () => {
         expect(actions.incrementTurnCounter().type).toEqual(types.INCREMENT_TURN_COUNTER);
     });
 });
+
+describe('Update owned squares action', () => {
+    it('should create an action to update a player\'s owned square', () => {
+        const squareID = 'square1',
+              expectedAction = {
+                  type: types.UPDATE_OWNED_SQUARES,
+                  payload: {
+                      squareID
+                  }
+              };
+
+        expect(actions.updateOwnedSquares('square1')).toEqual(expectedAction);
+    });
+});
