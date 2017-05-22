@@ -23,14 +23,16 @@ describe('Increment turn counter action', () => {
 
 describe('Update owned squares action', () => {
     it('should create an action to update a player\'s owned square', () => {
-        const squareID = 'square1',
+        const currentPlayer = 'x',
+              squareID = 'square1',
               expectedAction = {
                   type: types.UPDATE_OWNED_SQUARES,
                   payload: {
+                      currentPlayer,
                       squareID
                   }
               };
 
-        expect(actions.updateOwnedSquares('square1')).toEqual(expectedAction);
+        expect(actions.updateOwnedSquares('x', 'square1')).toEqual(expectedAction);
     });
 });

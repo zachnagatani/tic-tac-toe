@@ -12,10 +12,11 @@ function incrementTurnCounter () {
     }
 }
 
-function updateOwnedSquares (squareID) {
+function updateOwnedSquares (currentPlayer, squareID) {
     return {
         type: types.UPDATE_OWNED_SQUARES,
         payload: {
+            currentPlayer,
             squareID
         }
     }
