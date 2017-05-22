@@ -7,7 +7,7 @@ describe('Change player action', () => {
             type: types.CHANGE_PLAYER
         };
 
-        expect(actions.changePlayer().type).toEqual(types.CHANGE_PLAYER);
+        expect(actions.changePlayer()).toEqual(expectedAction);
     });
 });
 
@@ -17,7 +17,7 @@ describe('Increment turn counter action', () => {
             type: types.INCREMENT_TURN_COUNTER
         };
 
-        expect(actions.incrementTurnCounter().type).toEqual(types.INCREMENT_TURN_COUNTER);
+        expect(actions.incrementTurnCounter()).toEqual(expectedAction);
     });
 });
 
