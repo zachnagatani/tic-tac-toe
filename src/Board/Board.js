@@ -19,17 +19,18 @@ export default class Board extends React.Component {
 
         this.mapOwnedSquares = this.mapOwnedSquares.bind(this);
         this.claimSquare = this.claimSquare.bind(this);
+        this.checkWinLoop = this.checkWinLoop.bind(this);
+        this.checkWin = this.checkWin.bind(this);
     }
 
     mapOwnedSquares() {
         const squareIDs = ['square1', 'square2', 'square3', 'square4', 'square5', 'square6', 'square7', 'square8', 'square9'];
-        console.log(this.props.xOwnedSquares);
+
         squareIDs.forEach(ID => {
             if (this.props.xOwnedSquares.includes(ID)) {
                 let newStateSlice = {};
                 newStateSlice[ID + 'Owner'] = 'X';
                 this.setState(newStateSlice);
-                console.log('found in x');
             } else if (this.props.oOwnedSquares.includes(ID)) {
                 let newStateSlice = {};
                 newStateSlice[ID + 'Owner'] = 'O';
@@ -40,9 +41,46 @@ export default class Board extends React.Component {
 
     claimSquare(squareID) {
         this.props.claimSquare(this.props.currentPlayer, squareID);
+        this.props.changePlayer();
         // TODO: figure out better way to handle redux store update async nature
         setTimeout(this.mapOwnedSquares, 1);
-        this.props.changePlayer();
+        setTimeout(this.checkWin, 1);
+    }
+
+    checkWinLoop(player) {
+        const arr = player === 'x' ? this.props.xOwnedSquares : this.props.oOwnedSquares,
+              winConditions = [
+                  ['square1', 'square2', 'square3'],
+                  ['square4', 'square5', 'square6'],
+                  ['square7', 'square8', 'square9'],
+                  ['square1', 'square4', 'square7'],
+                  ['square2', 'square5', 'square8'],
+                  ['square3', 'square6', 'square9'],
+                  ['square1', 'square5', 'square9'],
+                  ['square3', 'square5', 'square7'],
+              ];
+
+        for (let i = 0; i < winConditions.length; i++) {
+            let winner;
+
+            for (let j = 0; j < winConditions[i].length; j++) {
+                if (!arr.includes(winConditions[i][j])) {
+                    winner = null;
+                    break;
+                }
+            }
+
+            if (winner === undefined) {
+                winner = player;
+                console.log('winner: ' + winner);
+                return winner;
+            }
+        }
+    }
+
+    checkWin() {
+        this.checkWinLoop('x');
+        this.checkWinLoop('o');
     }
 
     render() {
