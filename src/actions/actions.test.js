@@ -50,3 +50,13 @@ describe('Win status action', () => {
         expect(actions.winStatus(winner)).toEqual(expectedAction);
     });
 });
+
+describe('Game start status action', () => {
+    it('should create an action to update the game start status', () => {
+        const expectedAction = {
+            type: types.GAME_START
+        };
+
+        expect(actions.gameStart()).toEqual(expectedAction);
+    });
+});

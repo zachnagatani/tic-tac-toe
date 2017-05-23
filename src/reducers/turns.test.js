@@ -7,7 +7,7 @@ describe('Turns reducer', () => {
     });
 
     it('should handle incrementing the number of turns so far', () => {
-        expect(numOfTurns(0, INCREMENT_TURN_COUNTER)).toEqual(1);
-        expect(numOfTurns(1, INCREMENT_TURN_COUNTER)).toEqual(2);
+        expect(numOfTurns(0, { type: INCREMENT_TURN_COUNTER })).toEqual(1);
+        expect(numOfTurns(1, { type: INCREMENT_TURN_COUNTER })).toEqual(2);
     });
 });

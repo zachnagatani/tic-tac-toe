@@ -31,4 +31,10 @@ function winStatus (winner) {
     }
 }
 
-export { changePlayer, incrementTurnCounter, updateOwnedSquares, winStatus };
+function gameStart () {
+    return {
+        type: types.GAME_START
+    }
+}
+
+export { changePlayer, incrementTurnCounter, updateOwnedSquares, winStatus, gameStart };

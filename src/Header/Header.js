@@ -1,7 +1,7 @@
 import { connect } from 'react-redux';
 import Heading from './Heading.js';
 
-const getHeading = (currentPlayer, winner) => {
+const getHeading = (currentPlayer, winner, numOfTurns) => {
     switch (winner) {
         case 'TIE':
             return 'It\'s a tie!';
@@ -22,7 +22,7 @@ const getHeading = (currentPlayer, winner) => {
 
 function mapStateToProps (state) {
     return {
-        text: getHeading(state.currentPlayer, state.winner)
+        text: getHeading(state.currentPlayer, state.winner, state.numOfTurns)
     };
 }
 
