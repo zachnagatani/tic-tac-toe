@@ -60,3 +60,43 @@ describe('Game start status action', () => {
         expect(actions.gameStart()).toEqual(expectedAction);
     });
 });
+
+describe('Reset player action', () => {
+    it('should create an action to reset the current player', () => {
+        const expectedAction = {
+            type: types.RESET_PLAYER
+        };
+
+        expect(actions.resetPlayer()).toEqual(expectedAction);
+    });
+});
+
+describe('Reset turn counter action', () => {
+    it('should create an action to reset the turn counter', () => {
+        const expectedAction = {
+            type: types.RESET_TURN_COUNTER
+        };
+
+        expect(actions.resetTurnCounter()).toEqual(expectedAction);
+    });
+});
+
+describe('Reset owned square action', () => {
+    it('should create an action to reset the owned squares', () => {
+        const expectedAction = {
+            type: types.RESET_OWNED_SQUARES
+        };
+
+        expect(actions.resetOwnedSquares()).toEqual(expectedAction);
+    });
+});
+
+describe('Reset win status action', () => {
+    it('should create an action to reset the win status', () => {
+        const expectedAction = {
+            type: types.RESET_WIN_STATUS
+        };
+
+        expect(actions.resetWinStatus()).toEqual(expectedAction);
+    });
+});

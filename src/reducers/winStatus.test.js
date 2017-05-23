@@ -1,5 +1,5 @@
 import winner from './winStatus';
-import { WIN_STATUS } from '../actions/actionTypes';
+import * as types from '../actions/actionTypes';
 
 describe('Win status reducer', () => {
     it('should return its initial state', () => {
@@ -9,11 +9,15 @@ describe('Win status reducer', () => {
     it('should handle WIN_STATUS', () => {
         expect(winner(null,
             {
-                type: WIN_STATUS,
+                type: types.WIN_STATUS,
                 payload: {
                     winner: 'o'
                 }
             }
         )).toEqual('o');
+    });
+
+    it('should handle RESET_WIN_STATUS', () => {
+        expect(winner('o', { type: types.RESET_WIN_STATUS })).toEqual(null);
     });
 });

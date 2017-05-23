@@ -1,6 +1,6 @@
 import * as types from '../actions/actionTypes';
 
-export default function ownedSquares(state = {x: [], o: []}, action) {
+export default function ownedSquares(state = { x: [], o: [] }, action) {
     switch (action.type) {
         case types.UPDATE_OWNED_SQUARES:
             if (action.payload.currentPlayer === 'x') {
@@ -12,6 +12,8 @@ export default function ownedSquares(state = {x: [], o: []}, action) {
                     o: [...state.o, action.payload.squareID]
                 });
             }
+        case types.RESET_OWNED_SQUARES:
+            return { x: [], o: [] }
         default:
             return state;
     }
