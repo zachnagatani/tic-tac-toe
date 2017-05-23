@@ -2,6 +2,7 @@ html, body, #root, .App {
   height: 100%;
 }
 
+/* App */
 .App {
   display: flex;
   flex-direction: column;
@@ -9,6 +10,18 @@ html, body, #root, .App {
   justify-content: center;
 }
 
+/* Cover */
+.cover {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+}
+
+.cover--hidden {
+  display: none;
+}
+
+/* Board */
 .board {
   width: 318px;
   height: 318px;
@@ -16,6 +29,7 @@ html, body, #root, .App {
   flex-wrap: wrap;
 }
 
+/* Square */
 .square {
   width: 104px;
   height: 104px;

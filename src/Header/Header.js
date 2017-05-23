@@ -1,7 +1,11 @@
 import { connect } from 'react-redux';
 import Heading from './Heading.js';
 
-const getHeading = (currentPlayer, winner, numOfTurns) => {
+const getHeading = (currentPlayer, winner, numOfTurns, gameStartStatus) => {
+    if (!gameStartStatus) {
+        return 'Click anywhere to start';
+    }
+
     switch (winner) {
         case 'TIE':
             return 'It\'s a tie!';
@@ -22,7 +26,7 @@ const getHeading = (currentPlayer, winner, numOfTurns) => {
 
 function mapStateToProps (state) {
     return {
-        text: getHeading(state.currentPlayer, state.winner, state.numOfTurns)
+        text: getHeading(state.currentPlayer, state.winner, state.numOfTurns, state.gameStartStatus)
     };
 }
 
