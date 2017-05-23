@@ -1,13 +1,13 @@
-import winStatusReducer from './winStatus';
+import winner from './winStatus';
 import { WIN_STATUS } from '../actions/actionTypes';
 
 describe('Win status reducer', () => {
     it('should return its initial state', () => {
-        expect(winStatusReducer(undefined, {})).toEqual(null);
+        expect(winner(undefined, {})).toEqual(null);
     });
 
     it('should handle WIN_STATUS', () => {
-        expect(winStatusReducer(null,
+        expect(winner(null,
             {
                 type: WIN_STATUS,
                 payload: {

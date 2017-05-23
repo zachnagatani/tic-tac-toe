@@ -1,14 +1,23 @@
 import { combineReducers } from 'redux';
-import changePlayerReducer from './changePlayer';
-import ownedSquaresReducer from './ownedSquares';
-import turnsReducer from './turns';
-import winStatusReducer from './winStatus';
+import currentPlayer from './changePlayer';
+import ownedSquares from './ownedSquares';
+import numOfTurns from './turns';
+import winner from './winStatus';
 
-const chingChongCha = combineReducers({
-    changePlayerReducer,
-    ownedSquaresReducer,
-    turnsReducer,
-    winStatusReducer
-});
+const initialState = {
+        currentPlayer: 'x',
+        numOfTurns: 0,
+        ownedSquares: {
+            x: [],
+            o: []
+        },
+        winner: null
+    },
+      ticTacToe = combineReducers({
+        currentPlayer,
+        ownedSquares,
+        numOfTurns,
+        winner
+    });
 
-export default chingChongCha;
+export default ticTacToe;

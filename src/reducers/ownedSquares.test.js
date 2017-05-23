@@ -1,9 +1,9 @@
-import ownedSquaresReducer from './ownedSquares';
+import ownedSquares from './ownedSquares';
 import { UPDATE_OWNED_SQUARES } from '../actions/actionTypes';
 
 describe('Owned squares reducer', () => {
     it('should return its initial state', () => {
-        expect(ownedSquaresReducer(undefined, {}))
+        expect(ownedSquares(undefined, {}))
             .toEqual({
                 x: [],
                 o: []
@@ -11,7 +11,7 @@ describe('Owned squares reducer', () => {
     });
 
     it('should handle UPDATE_OWNED_SQUARES', () => {
-        expect(ownedSquaresReducer(undefined,
+        expect(ownedSquares(undefined,
             {
                 type: UPDATE_OWNED_SQUARES,
                 payload: {

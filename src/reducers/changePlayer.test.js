@@ -1,13 +1,13 @@
-import changePlayerReducer from './changePlayer';
+import currentPlayer from './currentPlayer';
 import * as types from '../actions/actionTypes';
 
 describe('Change players reducer', () => {
     it('should return the intial state', () => {
-        expect(changePlayerReducer(undefined, {})).toEqual('x');
+        expect(currentPlayer(undefined, {})).toEqual('x');
     });
 
     it('should handle CHANGE_PLAYER', () => {
         expect(
-            changePlayerReducer({ currentPlayer: 'o' }, types.CHANGE_PLAYER)).toEqual('x');
+            currentPlayer({ currentPlayer: 'o' }, types.CHANGE_PLAYER)).toEqual('x');
     });
 });
