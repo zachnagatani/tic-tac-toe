@@ -1,9 +1,25 @@
-import React from 'react';
+import { connect } from 'react-redux';
+import Heading from './Heading.js';
 
-const Header = props => {
-    return (
-        <h1>props.text</h1>
-    );
+const getHeading = currentPlayer => {
+    switch (currentPlayer) {
+        case 'x':
+            return 'It\'s X\'s turn!';
+        case 'o':
+            return 'It\'s O\'s turn!';
+        default:
+            return 'Click anywhere to start!';
+    }
 };
+
+function mapStateToProps (state) {
+    return {
+        text: getHeading(state.currentPlayer)
+    };
+}
+
+const Header = connect(
+    mapStateToProps
+)(Heading);
 
 export default Header;
