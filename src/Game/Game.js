@@ -6,7 +6,8 @@ const mapStateToProps = state => {
     return {
         currentPlayer: state.currentPlayer,
         xOwnedSquares: state.ownedSquares.x,
-        oOwnedSquares: state.ownedSquares.o
+        oOwnedSquares: state.ownedSquares.o,
+        numOfTurns: state.numOfTurns
     };
 };
 
@@ -17,6 +18,12 @@ const mapDispatchToProps = dispatch => {
         },
         changePlayer: () => {
             dispatch(actions.changePlayer());
+        },
+        declareWinner: winner => {
+            dispatch(actions.winStatus(winner));
+        },
+        incrementTurnCounter: () => {
+            dispatch(actions.incrementTurnCounter());
         }
     }
 };

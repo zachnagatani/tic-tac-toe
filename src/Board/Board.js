@@ -42,6 +42,7 @@ export default class Board extends React.Component {
     claimSquare(squareID) {
         this.props.claimSquare(this.props.currentPlayer, squareID);
         this.props.changePlayer();
+        this.props.incrementTurnCounter();
         // TODO: figure out better way to handle redux store update async nature
         setTimeout(this.mapOwnedSquares, 1);
         setTimeout(this.checkWin, 1);
@@ -72,15 +73,24 @@ export default class Board extends React.Component {
 
             if (winner === undefined) {
                 winner = player;
-                console.log('winner: ' + winner);
                 return winner;
             }
         }
     }
 
     checkWin() {
-        this.checkWinLoop('x');
-        this.checkWinLoop('o');
+        if (this.props.numOfTurns === 9) {
+            this.props.declareWinner('TIE');
+            return;
+        }
+
+        if (this.checkWinLoop('x')) {
+            this.props.declareWinner('x');
+        } else if (this.checkWinLoop('o')) {
+            this.props.declareWinner('o');
+        }
+
+        return;
     }
 
     render() {
