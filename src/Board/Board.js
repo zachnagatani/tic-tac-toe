@@ -38,7 +38,7 @@ export default class Board extends React.Component {
 
     render() {
         return (
-            <main className="board" onClick={this.mapOwnedSquares} style={{height: 1000}}>
+            <main className="board">
                 <Square squareID="square1" owningPlayer={this.state.square1Owner}></Square>
                 <Square squareID="square2" owningPlayer={this.state.square2Owner}></Square>
                 <Square squareID="square3" owningPlayer={this.state.square3Owner}></Square>
