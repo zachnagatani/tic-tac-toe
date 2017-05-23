@@ -48,6 +48,11 @@ export default class Board extends React.Component {
         setTimeout(this.checkWin, 1);
     }
 
+    /**
+     * Checks to see if a specific player has won the game. This gets called twice by checkWin each turn
+     * @returns {string} The winner, if one is found
+     * @param  {string} player - Either 'x' or 'o', denoting the player to check
+     */
     checkWinLoop(player) {
         const arr = player === 'x' ? this.props.xOwnedSquares : this.props.oOwnedSquares,
               winConditions = [
@@ -78,6 +83,10 @@ export default class Board extends React.Component {
         }
     }
 
+    /**
+     * Checks for a tie or a winner, and dispatches the appropriate action
+     * to the Redux store if necessary
+     */
     checkWin() {
         if (this.props.numOfTurns === 9) {
             this.props.declareWinner('TIE');

@@ -1,7 +1,15 @@
 import { connect } from 'react-redux';
 import Heading from './Heading.js';
 
-const getHeading = currentPlayer => {
+const getHeading = (currentPlayer, winner) => {
+    switch (winner) {
+        case 'TIE':
+            return 'It\'s a tie!';
+        case 'x':
+        case 'o':
+            return winner.toUpperCase() + ' wins!';
+    }
+
     switch (currentPlayer) {
         case 'x':
             return 'It\'s X\'s turn!';
@@ -14,7 +22,7 @@ const getHeading = currentPlayer => {
 
 function mapStateToProps (state) {
     return {
-        text: getHeading(state.currentPlayer)
+        text: getHeading(state.currentPlayer, state.winner)
     };
 }
 
