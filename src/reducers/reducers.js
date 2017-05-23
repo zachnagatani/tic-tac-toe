@@ -1,5 +1,5 @@
 import { combineReducers } from 'redux';
-import currentPlayer from './changePlayer';
+import currentPlayer from './currentPlayer';
 import ownedSquares from './ownedSquares';
 import numOfTurns from './turns';
 import winner from './winStatus';
