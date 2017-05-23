@@ -24,6 +24,18 @@ const mapDispatchToProps = dispatch => {
         },
         incrementTurnCounter: () => {
             dispatch(actions.incrementTurnCounter());
+        },
+        resetPlayer: () => {
+            dispatch(actions.resetPlayer());
+        },
+        resetTurnCounter: () => {
+            dispatch(actions.resetTurnCounter());
+        },
+        resetOwnedSquares: () => {
+            dispatch(actions.resetOwnedSquares());
+        },
+        resetWinStatus: () => {
+            dispatch(actions.resetWinStatus());
         }
     }
 };

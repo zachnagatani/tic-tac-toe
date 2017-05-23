@@ -26,7 +26,8 @@ const getHeading = (currentPlayer, winner, numOfTurns, gameStartStatus) => {
 
 function mapStateToProps (state) {
     return {
-        text: getHeading(state.currentPlayer, state.winner, state.numOfTurns, state.gameStartStatus)
+        text: getHeading(state.currentPlayer, state.winner, state.numOfTurns, state.gameStartStatus),
+        winner: state.winner
     };
 }
 

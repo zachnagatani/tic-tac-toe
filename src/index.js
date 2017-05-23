@@ -11,9 +11,9 @@ import * as actions from './actions/actions';
 let store = createStore(ticTacToe);
 console.log(store.getState());
 
-let unsubscribe = store.subscribe(() =>
-  console.log(store.getState())
-)
+// let unsubscribe = store.subscribe(() =>
+//   console.log(store.getState())
+// )
 
 ReactDOM.render(
     <Provider store={store}>

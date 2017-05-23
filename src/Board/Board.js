@@ -21,8 +21,12 @@ export default class Board extends React.Component {
         this.claimSquare = this.claimSquare.bind(this);
         this.checkWinLoop = this.checkWinLoop.bind(this);
         this.checkWin = this.checkWin.bind(this);
+        this.resetGame = this.resetGame.bind(this);
     }
 
+    /**
+     * Sets the property on the state for each corresponding square if it is owned by a player
+     */
     mapOwnedSquares() {
         const squareIDs = ['square1', 'square2', 'square3', 'square4', 'square5', 'square6', 'square7', 'square8', 'square9'];
 
@@ -39,6 +43,11 @@ export default class Board extends React.Component {
         });
     }
 
+    /**
+     * Fired when a player clicks a square. Dispatches the appropriate actions
+     * to the Redux store to switch the game to the next player
+     * @param {string} squareID - The ID of the square being claimed
+     */
     claimSquare(squareID) {
         this.props.claimSquare(this.props.currentPlayer, squareID);
         this.props.changePlayer();
@@ -85,21 +94,46 @@ export default class Board extends React.Component {
 
     /**
      * Checks for a tie or a winner, and dispatches the appropriate action
-     * to the Redux store if necessary
+     * to the Redux store if necessary. this.resetGame is then called,
+     * which resets the entire game back to its original state
      */
     checkWin() {
         if (this.props.numOfTurns === 9) {
             this.props.declareWinner('TIE');
+            setTimeout(this.resetGame, 3000);
             return;
         }
 
         if (this.checkWinLoop('x')) {
             this.props.declareWinner('x');
+            setTimeout(this.resetGame, 3000);
         } else if (this.checkWinLoop('o')) {
             this.props.declareWinner('o');
+            setTimeout(this.resetGame, 3000);
         }
 
         return;
+    }
+
+    /**
+     * Resets the game after its over
+     */
+    resetGame() {
+        this.props.resetPlayer();
+        this.props.resetTurnCounter();
+        this.props.resetOwnedSquares();
+        this.props.resetWinStatus();
+        this.setState({
+            square1Owner: null,
+            square2Owner: null,
+            square3Owner: null,
+            square4Owner: null,
+            square5Owner: null,
+            square6Owner: null,
+            square7Owner: null,
+            square8Owner: null,
+            square9Owner: null
+        });
     }
 
     render() {

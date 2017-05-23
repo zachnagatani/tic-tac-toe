@@ -10,6 +10,11 @@ html, body, #root, .App {
   justify-content: center;
 }
 
+/* Header */
+.header {
+  text-align: center;
+}
+
 /* Cover */
 .cover {
   width: 100%;
