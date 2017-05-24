@@ -8,6 +8,7 @@ This is a two-player tic-tac-toe game (you cannot play against the computer).
 
 ## Get Started
 To play, go to https://zachnagatani.github.io/tic-tac-toe
+
 Or, 
   1. clone the repo with `git clone https://github.com/zachnagatani/tic-tac-toe.git`
   2. Run 'npm start'
